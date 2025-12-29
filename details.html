@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Proyecto - Project Health Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .subdimension-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .subdimension-row:last-child {
+            border-bottom: none;
+        }
+
+        .rating-value {
+            font-weight: 600;
+            width: 24px;
+            text-align: center;
+            color: var(--primary-dark);
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .dimension-score {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .history-table th,
+        .history-table td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .history-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-brand">
+                <span style="font-size: 1.5em;">📊</span> PHT
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="create.html">Nuevo Proyecto</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div id="project-header" class="page-header"
+                style="align-items: flex-start; flex-direction: column; gap: 0.5rem;">
+                <!-- Injected by JS -->
+                <div style="display: flex; justify-content: space-between; width: 100%; align-items: start;">
+                    <div>
+                        <a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">←
+                            Volver al Dashboard</a>
+                        <h1 id="project-name" style="margin-top: 0.5rem;">Cargando...</h1>
+                        <p id="project-meta">...</p>
+                    </div>
+                    <a id="edit-project-btn" href="#" class="btn btn-secondary"
+                        style="font-size: 0.875rem; padding: 0.5rem 1rem;">
+                        ✏️ Editar Roles
+                    </a>
+                </div>
+            </div>
+
+            <div class="dashboard-grid" style="grid-template-columns: 2fr 1fr;">
+                <!-- Left Column: Rating Form -->
+                <div>
+                    <div class="card">
+                        <h2 style="margin-bottom: 1.5rem;">Nueva Evaluación Semanal</h2>
+                        <form id="rating-form">
+                            <div class="form-group">
+                                <label for="week" class="form-label">Semana</label>
+                                <input type="week" id="week" name="week" class="form-control" required>
+                            </div>
+
+                            <!-- Dimensions Container -->
+                            <div id="dimensions-container">
+                                <!-- Dimensions injected by JS -->
+                            </div>
+
+                            <div style="margin-top: 2rem; text-align: right;">
+                                <button type="submit" class="btn btn-primary">Guardar Evaluación</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Column: History & Stats -->
+                <div>
+                    <div class="card" style="position: sticky; top: 2rem;">
+                        <h3 style="margin-bottom: 1rem;">Historial de Salud</h3>
+                        <div id="history-grid" class="history-grid">
+                            <!-- History cards injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Rating Details Modal -->
+    <div id="rating-modal" class="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Detalles de Evaluación</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modal-body">
+                <!-- Details injected by JS -->
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
